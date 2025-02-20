@@ -11,6 +11,74 @@
     nodejs_23
   ];
 
+  programs.hyprlock = {
+    enable = true;
+    settings = {
+      background = [
+        {
+          path = "~/nixos/wallpaper.jpg";
+          blur_passes = 2;
+        }
+      ];
+      label = [
+        {
+          monitor = "eDP-1";
+          text = "$TIME";
+          color = "rgba(242, 243, 244, 0.75)";
+          font_size = 95;
+          font_family = "JetBrains Mono";
+          position = "0, 175";
+	  halign = "center";
+	  valign = "center";
+        }
+        {
+          monitor = "eDP-1";
+          text = ''cmd[update:1000] echo $(date +"%A, %B %d")'';
+          color = "rgba(242, 243, 244, 0.75)";
+          font_size = 22;
+          font_family = "JetBrains Mono";
+          position = "0, 75";
+          halign = "center";
+          valign = "center";
+        }
+      ];
+      input-field = {
+        monitor = "eDP-1";
+        size = "200, 50";
+        outline_thickness = 2;
+        dots_size = 0.2;
+        dots_spacing = 0.35;
+        outer_color = "rgba(0, 0, 0, 0)";
+        inner_color = "rgba(0, 0, 0, 0.4)";
+        font_color = "rgb(255, 255, 255)";
+        fade_on_empty = false;
+        position = "0, -50";
+      };
+    };
+  };
+
+  services.hypridle = {
+    enable = true;
+    settings = {
+      general = {
+        lock_cmd = "pidof hyprlock || hyprlock";
+        before_sleep_cmd = "loginctl lock-session";
+	after_sleep_cmd = "hyprctl dispatch dpms on";
+      };
+      listener = [
+        {
+          timeout = 60;
+          on-timeout = "hyprlock";
+        }
+        {
+          timeout = 120;
+          on-timeout = "hyprctl dispatch dpms off";
+          on-resume = "hyprctl dispatch dpms on";
+        }
+      ];
+    };
+  };
+
   services.hyprpaper = {
     enable = true;
     settings = {
