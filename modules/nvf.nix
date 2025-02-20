@@ -42,6 +42,8 @@
 
         telescope.enable = true;
 
+        git.enable = true;
+
         notify = {
           nvim-notify.enable = true;
         };
