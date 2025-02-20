@@ -132,6 +132,14 @@
       input = {
         kb_layout = "ch";
         kb_variant = "fr";
+        touchpad = {
+          natural_scroll = true;
+        };
+      };
+      gestures = {
+        workspace_swipe = true;
+        workspace_swipe_cancel_ratio = 0.3;
+        workspace_swipe_distance = 200;
       };
       misc = {
         disable_hyprland_logo = true;
