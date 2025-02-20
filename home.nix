@@ -91,6 +91,9 @@
     enable = true;
     settings = {
       "$mod" = "SUPER";
+      "$modWindow" = "SUPER_SHIFT";
+      "$modResize" = "SUPER ALT";
+      "$step" = "20";
       bind = [
         "$mod, B, exec, firefox"
         "$mod, T, exec, alacritty"
@@ -104,6 +107,35 @@
 	"$mod, K, movefocus, u"
 	"$mod, J, movefocus, d"
 
+	"$mod, 1, workspace, 1"
+	"$mod, 2, workspace, 2"
+	"$mod, 3, workspace, 3"
+	"$mod, 4, workspace, 4"
+	"$mod, 5, workspace, 5"
+	"$mod, 6, workspace, 6"
+	"$mod, 7, workspace, 7"
+	"$mod, 8, workspace, 8"
+	"$mod, 9, workspace, 9"
+
+	"$modWindow, L, movewindow, r"
+	"$modWindow, H, movewindow, l"
+	"$modWindow, K, movewindow, u"
+	"$modWindow, J, movewindow, d"
+
+	"$modWindow, 1, movetoworkspace, 1"
+	"$modWindow, 2, movetoworkspace, 2"
+	"$modWindow, 3, movetoworkspace, 3"
+	"$modWindow, 4, movetoworkspace, 4"
+	"$modWindow, 5, movetoworkspace, 5"
+	"$modWindow, 6, movetoworkspace, 6"
+	"$modWindow, 7, movetoworkspace, 7"
+	"$modWindow, 8, movetoworkspace, 8"
+	"$modWindow, 9, movetoworkspace, 9"
+
+	"$modResize, L, resizeactive, $step 0"
+	"$modResize, H, resizeactive, -$step 0"
+	"$modResize, K, resizeactive, 0 -$step"
+	"$modResize, J, resizeactive, 0 $step"
       ];
       monitor = [
         "eDP-1, 1920x1080, 0x0, 1"
@@ -119,28 +151,6 @@
       };
       exec-once = "waybar";
     };
-    extraConfig = ''
-bind=$mod,R,submap,resize
-
-submap=resize
-
-$step=20
-
-binde=,L,resizeactive,$step 0
-binde=,H,resizeactive,-$step 0
-binde=,K,resizeactive,0 -$step
-binde=,J,resizeactive,0 $step
-
-bind=SHIFT,L,movewindow,r
-bind=SHIFT,H,movewindow,l
-bind=SHIFT,K,movewindow,u
-bind=SHIFT,J,movewindow,d
-
-bind=,ESCAPE,submap,reset
-bind=,ENTER,submap,reset
-
-submap=reset
-    '';
   };
 
   programs.wofi = {
