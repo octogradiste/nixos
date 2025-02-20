@@ -12,13 +12,13 @@
       yoga = nixpkgs.lib.nixosSystem {
         system = "x86_64-linux";
         modules = [
-          ./configuration.nix
+          ./nixos/configuration.nix
           home-manager.nixosModules.home-manager
           {
             home-manager.useGlobalPkgs = true;
 	    # Enables installation of user packages through the users.users.<name>.packages option.
             home-manager.useUserPackages = true;
-            home-manager.users.colin = import ./home.nix;
+            home-manager.users.colin = import ./home/home.nix;
           }
         ];
       };
