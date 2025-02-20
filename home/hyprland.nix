@@ -112,11 +112,6 @@
         "$modWindow, 8, movetoworkspace, 8"
         "$modWindow, 9, movetoworkspace, 9"
 
-        "$modResize, L, resizeactive, $step 0"
-        "$modResize, H, resizeactive, -$step 0"
-        "$modResize, K, resizeactive, 0 -$step"
-        "$modResize, J, resizeactive, 0 $step"
-
         ",XF86AudioLowerVolume, exec, pactl -- set-sink-volume 0 -10%"
         ",XF86AudioRaiseVolume, exec, pactl -- set-sink-volume 0 +10%"
         ",XF86AudioMute, exec, pactl -- set-sink-mute 0 toggle"
@@ -124,10 +119,25 @@
         ",XF86MonBrightnessDown, exec, brightnessctl s 10%-"
         ",XF86MonBrightnessUp, exec, brightnessctl s +10%"
       ];
+      binde = [
+        "$modResize, L, resizeactive, $step 0"
+        "$modResize, H, resizeactive, -$step 0"
+        "$modResize, K, resizeactive, 0 -$step"
+        "$modResize, J, resizeactive, 0 $step"
+      ];
+      general = {
+        gaps_in = 5;
+        gaps_out = 10;
+        resize_on_border = true;
+        hover_icon_on_border = true;
+      };
       monitor = [
         "eDP-1, 1920x1080, 0x0, 1"
         ",preferred, auto-left, 1.5"
       ];
+      animations = {
+        enabled = false;
+      };
       input = {
         kb_layout = "ch";
         kb_variant = "fr";
