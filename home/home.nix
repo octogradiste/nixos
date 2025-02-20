@@ -11,12 +11,30 @@
   ];
 
   imports = [
-    ./hyprland.nix
+    ./hypr
   ];
 
   programs.firefox.enable = true;
 
   programs.tmux.enable = true;
+
+  programs.wofi.enable = true;
+
+  programs.waybar = {
+    enable = true;
+    settings = [
+      {
+        layer = "top";
+        modules-left = [
+          "hyprland/workspaces"
+        ];
+        modules-right = [
+          "battery"
+          "clock"
+        ];
+      }
+    ];
+  };
 
   programs.git = {
     enable = true;
