@@ -1,8 +1,7 @@
-{ config, pkgs, ... }: {
+{pkgs, ...}: {
   home.username = "colin";
   home.homeDirectory = "/home/colin";
 
-  # Packages that should be installed to the user profile.
   home.packages = with pkgs; [
     htop
     xournalpp
@@ -15,7 +14,6 @@
 
   programs.firefox.enable = true;
 
-  programs.neovim.enable = true;
   programs.tmux.enable = true;
 
   programs.git = {
