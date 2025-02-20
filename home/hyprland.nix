@@ -1,20 +1,16 @@
-{...}: {
+{lib, ...}: {
   programs.hyprlock = {
     enable = true;
     settings = {
-      background = [
-        {
-          path = "~/nixos/wallpaper.jpg";
-          blur_passes = 2;
-        }
-      ];
+      background = {
+        blur_passes = lib.mkForce 1;
+      };
       label = [
         {
           monitor = "eDP-1";
           text = "$TIME";
           color = "rgba(242, 243, 244, 0.75)";
           font_size = 95;
-          font_family = "JetBrains Mono";
           position = "0, 175";
           halign = "center";
           valign = "center";
@@ -24,7 +20,6 @@
           text = ''cmd[update:1000] echo $(date +"%A, %B %d")'';
           color = "rgba(242, 243, 244, 0.75)";
           font_size = 22;
-          font_family = "JetBrains Mono";
           position = "0, 75";
           halign = "center";
           valign = "center";
@@ -36,9 +31,6 @@
         outline_thickness = 2;
         dots_size = 0.2;
         dots_spacing = 0.35;
-        outer_color = "rgba(0, 0, 0, 0)";
-        inner_color = "rgba(0, 0, 0, 0.4)";
-        font_color = "rgb(255, 255, 255)";
         fade_on_empty = false;
         position = "0, -50";
       };
@@ -149,13 +141,7 @@
     };
   };
 
-  programs.wofi = {
-    enable = true;
-    settings = {
-      gtk_dark = true;
-    };
-    style = "*{ font-family: monospace; }";
-  };
+  programs.wofi.enable = true;
 
   programs.waybar = {
     enable = true;
@@ -164,7 +150,6 @@
         layer = "top";
         modules-left = [
           "hyprland/workspaces"
-          "hyprland/submap"
         ];
         modules-right = [
           "battery"

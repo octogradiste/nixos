@@ -11,12 +11,14 @@
       url = "github:notashelf/nvf";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    stylix.url = "github:danth/stylix/release-24.11";
   };
 
   outputs = inputs @ {
     nixpkgs,
     home-manager,
     nvf,
+    stylix,
     ...
   }: {
     nixosConfigurations = {
@@ -24,7 +26,7 @@
         system = "x86_64-linux";
         modules = [
           ./nixos/configuration.nix
-          ./modules/nvf.nix
+          ./modules
           nvf.nixosModules.default
           home-manager.nixosModules.home-manager
           {
@@ -33,6 +35,7 @@
             home-manager.useUserPackages = true;
             home-manager.users.colin = import ./home/home.nix;
           }
+          stylix.nixosModules.stylix
         ];
       };
     };
