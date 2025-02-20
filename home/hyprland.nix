@@ -116,6 +116,13 @@
         "$modResize, H, resizeactive, -$step 0"
         "$modResize, K, resizeactive, 0 -$step"
         "$modResize, J, resizeactive, 0 $step"
+
+        ",XF86AudioLowerVolume, exec, pactl -- set-sink-volume 0 -10%"
+        ",XF86AudioRaiseVolume, exec, pactl -- set-sink-volume 0 +10%"
+        ",XF86AudioMute, exec, pactl -- set-sink-mute 0 toggle"
+        ",XF86AudioMicMute, exec, pactl -- set-source-mute 0 toggle"
+        ",XF86MonBrightnessDown, exec, brightnessctl s 10%-"
+        ",XF86MonBrightnessUp, exec, brightnessctl s +10%"
       ];
       monitor = [
         "eDP-1, 1920x1080, 0x0, 1"

@@ -6,6 +6,8 @@
     htop
     xournalpp
     nodejs_23
+    brightnessctl
+    pulseaudio
   ];
 
   imports = [
