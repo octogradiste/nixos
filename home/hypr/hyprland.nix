@@ -50,6 +50,10 @@
         ",XF86AudioMicMute, exec, pactl -- set-source-mute 0 toggle"
         ",XF86MonBrightnessDown, exec, brightnessctl s 10%-"
         ",XF86MonBrightnessUp, exec, brightnessctl s +10%"
+
+        ",PRINT, exec, hyprshot -m region --clipboard-only"
+        "SHIFT, PRINT, exec, hyprshot -m window --clipboard-only"
+        "CONTROL, PRINT, exec, hyprshot -m active -m output --clipboard-only"
       ];
       binde = [
         "$modResize, L, resizeactive, $step 0"

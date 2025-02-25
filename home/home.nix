@@ -20,6 +20,8 @@
 
   programs.wofi.enable = true;
 
+  services.dunst.enable = true;
+
   programs.waybar = {
     enable = true;
     settings = [
