@@ -12,6 +12,10 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
     stylix.url = "github:danth/stylix/release-24.11";
+    firefox-addons = {
+      url = "gitlab:rycee/nur-expressions?dir=pkgs/firefox-addons";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
   outputs = inputs @ {
@@ -20,10 +24,13 @@
     nvf,
     stylix,
     ...
-  }: {
+  }: let
+    system = "x86_64-linux";
+    username = "colin";
+  in {
     nixosConfigurations = {
       yoga = nixpkgs.lib.nixosSystem {
-        system = "x86_64-linux";
+        system = system;
         modules = [
           ./nixos/configuration.nix
           ./modules
@@ -31,9 +38,11 @@
           home-manager.nixosModules.home-manager
           {
             home-manager.useGlobalPkgs = true;
-            # Enables installation of user packages through the users.users.<name>.packages option.
             home-manager.useUserPackages = true;
             home-manager.users.colin = import ./home/home.nix;
+            home-manager.extraSpecialArgs = {
+              inherit inputs system username;
+            };
           }
           stylix.nixosModules.stylix
         ];

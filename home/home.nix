@@ -1,20 +1,34 @@
-{pkgs, ...}: {
-  home.username = "colin";
-  home.homeDirectory = "/home/colin";
-
-  home.packages = with pkgs; [
-    htop
-    xournalpp
-    nodejs_23
-    brightnessctl
-    pulseaudio
-  ];
-
+{
+  pkgs,
+  username,
+  ...
+}: {
   imports = [
     ./hypr
+    ./programs
   ];
 
-  programs.firefox.enable = true;
+  home.username = username;
+  home.homeDirectory = "/home/${username}";
+
+  home.packages = with pkgs; [
+    # system
+    htop
+    brightnessctl
+    pulseaudio
+
+    # archive
+    zip
+    unzip
+
+    # utilities
+    pavucontrol
+    nautilus
+    xournalpp
+
+    # social
+    signal-desktop
+  ];
 
   programs.tmux.enable = true;
 
