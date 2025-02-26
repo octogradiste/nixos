@@ -9,7 +9,10 @@
       bind = [
         "$mod, B, exec, firefox"
         "$mod, T, exec, alacritty"
+        "$mod, X, exec, xournalpp"
+
         "$mod, SPACE, exec, wofi --show drun"
+        "$mod, RETURN, exec, loginctl lock-session"
 
         "$mod, E, killactive"
         "$mod, F, fullscreen, 0"

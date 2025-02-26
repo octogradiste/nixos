@@ -9,13 +9,22 @@
       };
       listener = [
         {
-          timeout = 60;
-          on-timeout = "hyprlock";
+          timeout = 90;
+          on-timeout = "brightnessctl --save set 10";
+          on-resume = "brightnessctl --restore";
         }
         {
           timeout = 120;
+          on-timeout = "loginctl lock-session";
+        }
+        {
+          timeout = 150;
           on-timeout = "hyprctl dispatch dpms off";
           on-resume = "hyprctl dispatch dpms on";
+        }
+        {
+          timeout = 240;
+          on-timeout = "systemctl suspend";
         }
       ];
     };
