@@ -10,5 +10,8 @@
         name = "JetBrainsMono Nerd Font Mono";
       };
     };
+    targets = {
+      vscode.enable = false;
+    };
   };
 }

@@ -6,6 +6,7 @@
   imports = [
     ./hypr
     ./programs
+    ./stylix.nix
   ];
 
   home.username = username;

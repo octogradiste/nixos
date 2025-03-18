@@ -40,11 +40,11 @@
             home-manager.useGlobalPkgs = true;
             home-manager.useUserPackages = true;
             home-manager.users.colin = import ./home/home.nix;
+            home-manager.sharedModules = [stylix.homeManagerModules.stylix];
             home-manager.extraSpecialArgs = {
               inherit inputs system username;
             };
           }
-          stylix.nixosModules.stylix
         ];
       };
     };

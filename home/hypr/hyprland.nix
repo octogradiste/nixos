@@ -64,6 +64,9 @@
         "$modResize, K, resizeactive, 0 -$step"
         "$modResize, J, resizeactive, 0 $step"
       ];
+      env = [
+        "ELECTRON_OZONE_PLATFORM_HINT,auto"
+      ];
       general = {
         gaps_in = 5;
         gaps_out = 10;
