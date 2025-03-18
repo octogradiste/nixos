@@ -54,6 +54,8 @@
   services.xserver.displayManager.gdm.enable = true;
   # services.xserver.desktopManager.gnome.enable = true;
 
+  services.udisks2.enable = true;
+
   # Configure keymap in X11
   services.xserver.xkb = {
     layout = "ch";
