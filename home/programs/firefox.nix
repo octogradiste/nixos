@@ -3,16 +3,20 @@
   system,
   username,
   ...
-}: {
+}:
+{
   programs.firefox = {
     enable = true;
     profiles.${username} = {
       id = 0;
-      extensions = with inputs.firefox-addons.packages.${system}; [
-        bitwarden
-        ublock-origin
-        multi-account-containers
-      ];
+      extensions = {
+        force = true;
+        packages = with inputs.firefox-addons.packages.${system}; [
+          bitwarden
+          ublock-origin
+          multi-account-containers
+        ];
+      };
       settings = {
         "accessibility.typeaheadfind" = true;
         "signon.rememberSignons" = false;
@@ -38,28 +42,36 @@
         };
       };
       containersForce = true;
-      bookmarks = [
-        {
-          name = "EPFL";
-          bookmarks = [
-            {
-              name = "Moodle";
-              keyword = "moodle";
-              url = "https://moodle.epfl.ch/";
-            }
-            {
-              name = "IS-Academia";
-              keyword = "isa";
-              url = "https://isa.epfl.ch";
-            }
-          ];
-        }
-        {
-          name = "WhatsApp";
-          keyword = "whatsapp";
-          url = "https://web.whatsapp.com/";
-        }
-      ];
+      bookmarks = {
+        force = true;
+        settings = [
+          {
+            name = "EPFL";
+            bookmarks = [
+              {
+                name = "Moodle";
+                keyword = "moodle";
+                url = "https://moodle.epfl.ch/";
+              }
+              {
+                name = "IS-Academia";
+                keyword = "isa";
+                url = "https://isa.epfl.ch";
+              }
+              {
+                name = "Slack JE EPFL Projet Amarante";
+                keyword = "slack";
+                url = "https://jeepflprojetamarante.slack.com/";
+              }
+            ];
+          }
+          {
+            name = "WhatsApp";
+            keyword = "whatsapp";
+            url = "https://web.whatsapp.com/";
+          }
+        ];
+      };
     };
   };
 }
