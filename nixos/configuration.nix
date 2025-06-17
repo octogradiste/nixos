@@ -1,5 +1,6 @@
-{pkgs, ...}: {
-  imports = [./hardware-configuration.nix];
+{ pkgs, ... }:
+{
+  imports = [ ./hardware-configuration.nix ];
 
   # Bootloader.
   boot.loader.systemd-boot.enable = true;
@@ -13,8 +14,11 @@
   };
 
   nix.settings = {
-    experimental-features = ["nix-command" "flakes"];
     auto-optimise-store = true;
+    experimental-features = [
+      "nix-command"
+      "flakes"
+    ];
   };
 
   networking.hostName = "yoga"; # Define your hostname.
@@ -47,12 +51,7 @@
 
   programs.hyprland.enable = true;
 
-  # Enable the X11 windowing system.
-  services.xserver.enable = true;
-
-  # Enable the GNOME Desktop Environment.
-  services.xserver.displayManager.gdm.enable = true;
-  # services.xserver.desktopManager.gnome.enable = true;
+  services.displayManager.gdm.enable = true;
 
   services.udisks2.enable = true;
 
@@ -69,7 +68,7 @@
   services.printing.enable = true;
 
   # Enable sound with pipewire.
-  hardware.pulseaudio.enable = false;
+  services.pulseaudio.enable = false;
   security.rtkit.enable = true;
   services.pipewire = {
     enable = true;
@@ -91,7 +90,15 @@
   users.users.colin = {
     isNormalUser = true;
     description = "Colin";
-    extraGroups = ["networkmanager" "wheel"];
+    extraGroups = [
+      "networkmanager"
+      "wheel"
+      "docker"
+    ];
+  };
+
+  virtualisation.docker = {
+    enable = true;
   };
 
   # Allow unfree packages
@@ -116,7 +123,10 @@
   # List services that you want to enable:
 
   # Enable the OpenSSH daemon.
-  # services.openssh.enable = true;
+  services.openssh.enable = true;
+
+  # Start ssh agent.
+  programs.ssh.startAgent = true;
 
   # Open ports in the firewall.
   # networking.firewall.allowedTCPPorts = [ ... ];

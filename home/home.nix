@@ -2,8 +2,10 @@
   pkgs,
   username,
   ...
-}: {
+}:
+{
   imports = [
+    ./accounts.nix
     ./hypr
     ./programs
     ./stylix.nix
@@ -23,9 +25,26 @@
     unzip
 
     # utilities
-    pavucontrol
+    ripgrep
+    nmap
+
+    # virtualisation
+    devenv
+    direnv
+    distrobox
+    docker-compose
+
+    # programs
+    evince
+    loupe
     nautilus
+    openscad
+    pavucontrol
+    simple-scan
+    totem
     xournalpp
+
+    texlive.combined.scheme-full
 
     # social
     signal-desktop
@@ -51,9 +70,7 @@
     settings = [
       {
         layer = "top";
-        modules-left = [
-          "hyprland/workspaces"
-        ];
+        modules-left = [ "hyprland/workspaces" ];
         modules-right = [
           "battery"
           "clock"
