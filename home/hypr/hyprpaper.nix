@@ -1,11 +1,13 @@
-{...}: let
+{ ... }:
+let
   wallpaper = "/etc/nixos/wallpaper.jpg";
-in {
+in
+{
   services.hyprpaper = {
     enable = true;
     settings = {
-      preload = [wallpaper];
-      wallpaper = [",${wallpaper}"];
+      preload = [ wallpaper ];
+      wallpaper = [ ",${wallpaper}" ];
     };
   };
 }
