@@ -6,5 +6,8 @@
       "<C-i>" = "zoom in";
       "<C-o>" = "zoom out";
     };
+    options = {
+      "selection-clipboard" = "clipboard";
+    };
   };
 }
