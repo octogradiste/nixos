@@ -64,6 +64,9 @@
   # Configure console keymap
   console.keyMap = "fr_CH";
 
+  # Useful to execute shebangs, e.g. scripts with `#!/bin/bash`
+  services.envfs.enable = true;
+
   # Enable CUPS to print documents.
   services.printing.enable = true;
 
