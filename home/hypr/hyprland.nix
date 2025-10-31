@@ -7,6 +7,12 @@
       "$modWindow" = "SUPER_SHIFT";
       "$modResize" = "SUPER ALT";
       "$step" = "20";
+      windowrulev2 = [
+        "noinitialfocus, class:^jetbrains-.+$, floating:1"
+      ];
+      bindm = [
+        "$mod, mouse:272, movewindow"
+      ];
       bind = [
         "$mod, B, exec, firefox"
         "$mod, T, exec, alacritty"
@@ -68,6 +74,9 @@
       env = [
         "ELECTRON_OZONE_PLATFORM_HINT,auto"
       ];
+      xwayland = {
+        force_zero_scaling = true;
+      };
       general = {
         gaps_in = 5;
         gaps_out = 10;
