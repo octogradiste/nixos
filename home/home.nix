@@ -34,6 +34,11 @@
     distrobox
     docker-compose
 
+    # graphics
+    darktable
+    gimp3
+    inkscape
+
     # programs
     evince
     loupe
@@ -43,6 +48,7 @@
     simple-scan
     totem
     xournalpp
+    libreoffice
 
     texlive.combined.scheme-full
 
