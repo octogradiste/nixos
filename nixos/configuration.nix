@@ -62,9 +62,15 @@
   services.udisks2.enable = true;
 
   # Configure keymap in X11
-  services.xserver.xkb = {
-    layout = "ch";
-    variant = "fr";
+  services.xserver = {
+    xkb = {
+      layout = "ch";
+      variant = "fr";
+    };
+    videoDrivers = [
+      "displaylink"
+      "modesetting"
+    ];
   };
 
   # Configure console keymap
@@ -119,6 +125,7 @@
     git
     vim
     wget
+    displaylink
   ];
 
   # Some programs need SUID wrappers, can be configured further or are
