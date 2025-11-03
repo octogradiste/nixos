@@ -3,6 +3,22 @@
   accounts.email = {
     maildirBasePath = "mails";
     accounts = {
+      "epfl" = {
+        address = "colin.berger@epfl.ch";
+        userName = "colin.berger@epfl.ch";
+        realName = "Colin Berger";
+        imap = {
+          host = "outlook.office365.com";
+          port = 993;
+          tls.enable = true;
+        };
+        smtp = {
+          host = "smtp.office365.com";
+          port = 587;
+          tls.enable = true;
+        };
+        thunderbird.enable = true;
+      };
       "outlook" = {
         primary = true;
         address = "colin.berger@outlook.com";
