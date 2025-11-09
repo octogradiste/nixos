@@ -16,13 +16,14 @@
       bind = [
         "$mod, B, exec, firefox"
         "$mod, T, exec, alacritty"
+        "$mod, F, exec, nautilus"
         "$mod, X, exec, xournalpp"
 
         "$mod, SPACE, exec, wofi --show drun"
         "$mod, RETURN, exec, loginctl lock-session"
 
         "$mod, E, killactive"
-        "$mod, F, fullscreen, 0"
+        "$modWindow, F, fullscreen, 0"
 
         "$mod, L, movefocus, r"
         "$mod, H, movefocus, l"
