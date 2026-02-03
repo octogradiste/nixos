@@ -43,13 +43,13 @@
     evince
     loupe
     nautilus
-    openscad
     pavucontrol
     simple-scan
     totem
     xournalpp
     libreoffice
     vista-fonts
+    gnome-text-editor
 
     texlive.combined.scheme-full
 
