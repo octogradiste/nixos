@@ -17,6 +17,11 @@
           multi-account-containers
         ];
       };
+      search = {
+        force = true;
+        default = "ddg";
+        privateDefault = "ddg";
+      };
       settings = {
         "accessibility.typeaheadfind" = true;
         "signon.rememberSignons" = false;
