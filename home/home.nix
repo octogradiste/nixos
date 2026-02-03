@@ -49,6 +49,7 @@
     totem
     xournalpp
     libreoffice
+    vista-fonts
 
     texlive.combined.scheme-full
 
