@@ -3,9 +3,20 @@
   imports = [ ./hardware-configuration.nix ];
 
   # Bootloader.
-  boot.loader.systemd-boot.enable = true;
-  boot.loader.systemd-boot.configurationLimit = 10;
-  boot.loader.efi.canTouchEfiVariables = true;
+  boot.loader = {
+    efi.canTouchEfiVariables = true;
+    systemd-boot = {
+      enable = true;
+      configurationLimit = 5;
+      extraEntries = {
+        "ubuntu.conf" = ''
+          title   Ubuntu
+          efi     /EFI/ubuntu/grubx64.efi
+          sort-key u_ubuntu
+        '';
+      };
+    };
+  };
 
   nix.gc = {
     automatic = true;
@@ -82,6 +93,11 @@
   # Enable CUPS to print documents.
   services.printing.enable = true;
 
+  # Enable GNOME Keyring and automatically unlock upon login
+  # services.gnome.gnome-keyring.enable = true;
+  # security.pam.services.gdm.enableGnomeKeyring = true;
+  security.pam.services.gdm.enableKwallet = true;
+
   # Enable sound with pipewire.
   services.pulseaudio.enable = false;
   security.rtkit.enable = true;
@@ -126,6 +142,8 @@
     vim
     wget
     displaylink
+    kdePackages.kwallet
+    kdePackages.kwallet-pam
   ];
 
   # Some programs need SUID wrappers, can be configured further or are
