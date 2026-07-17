@@ -13,7 +13,7 @@
 
       # formatting
       jq
-      nixfmt-rfc-style
+      nixfmt
       prettierd
       stylua
 

@@ -50,6 +50,7 @@
     libreoffice
     vista-fonts
     gnome-text-editor
+    opencode
 
     texlive.combined.scheme-full
 

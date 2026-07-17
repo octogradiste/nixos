@@ -23,5 +23,6 @@
         profileNames = [ username ];
       };
     };
+    overlays.enable = false;
   };
 }
