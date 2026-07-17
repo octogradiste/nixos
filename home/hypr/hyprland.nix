@@ -2,6 +2,7 @@
 {
   wayland.windowManager.hyprland = {
     enable = true;
+    configType = "hyprlang";
     settings = {
       "$mod" = "SUPER";
       "$modWindow" = "SUPER_SHIFT";

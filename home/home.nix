@@ -25,6 +25,7 @@
     unzip
 
     # utilities
+    wl-clipboard
     ripgrep
     nmap
 
@@ -56,6 +57,13 @@
 
     # social
     signal-desktop
+
+    # editor
+    neovim
+    lua-language-server
+    stylua
+    nixd
+    nixfmt
   ];
 
   programs.wofi.enable = true;
@@ -90,5 +98,5 @@
   # Let home Manager install and manage itself.
   programs.home-manager.enable = true;
 
-  home.stateVersion = "24.11";
+  home.stateVersion = "26.11";
 }

@@ -1,10 +1,10 @@
 { ... }:
 {
   imports = [
-    ./editor
     ./firefox.nix
     ./terminal
     ./thunderbird.nix
+    ./vscode.nix
     ./zathura.nix
   ];
 }
